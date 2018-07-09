@@ -1,9 +1,15 @@
-# E-Invoices
+# Data Pipeline Service
 
 ## Todo
 
 - Dockerize
   - deploy
+
+## Docker Installation
+
+```
+brew cask install docker
+```
 
 ## Development
 
