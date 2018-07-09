@@ -1,0 +1,15 @@
+version: '3'
+services:
+  dap-svc:
+    depends_on:
+      - postgres
+    ports:
+      - "3006:3000"
+    command: sh -c "sh /builds/wait-for -t 30 postgres:5432 -- yarn --network-timeout 60000 && yarn db:migrate && yarn _develop"
+  postgres:
+    image: postgres:9.6-alpine
+    volumes: 
+      - ./psql:/docker-entrypoint-initdb.d/
+    container_name: pg_dap_
+    ports:
+      - "5432:5432"

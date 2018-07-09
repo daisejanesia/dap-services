@@ -1,0 +1,77 @@
+---
+common:
+  jwt:
+    algorithms: &JWT_ALGORITHMS
+    # never ever specify 'none'
+      - 'HS256'
+      - 'HS384'
+      - 'HS512'
+      - 'RS256'
+      - 'RS384'
+      - 'RS512'
+development:
+  sentry:
+    dsn:
+  sequelize:
+    username: postgres
+    password: null
+    database: 'client_site_development'
+    options:
+      host: 'postgres'
+      dialect: 'postgres'
+      pool:
+        max: 5
+        min: 0
+        idle: 10000
+  jwt:
+    secret: 'secret'
+    algorithms: *JWT_ALGORITHMS
+  eInvoice:
+    s3Bucket: einvoices-by-environment-dev
+    ecsTaskDefinitionRevision: 9
+  fabric: 'http://fabric-stage.filex.com'
+test:
+  sentry:
+    dsn:
+  sequelize:
+    username: postgres
+    password: null
+    database: 'client_site_development'
+    options:
+      host: 'postgres'
+      dialect: 'postgres'
+      pool:
+        max: 5
+        min: 0
+        idle: 10000
+  jwt:
+    secret: 'secret'
+    algorithms: *JWT_ALGORITHMS
+  eInvoice:
+    s3Bucket: einvoices-by-environment-dev
+    ecsTaskDefinitionRevision: 9
+  fabric: null
+  aws:
+    aws_access_key_id: null
+    aws_secret_key: null
+staging:
+  sentry:
+    dsn: https://72414661d3a04cebaf98cd55b8d93b8a:309971154ec14b35a08ffa7a6174031b@sentry.traxtech.com/27
+  logger:
+    name: node-micro-services-staging
+    host: logstash.s03.filex.com
+    port: 5231
+  log_level: info
+  sequelize:
+    options:
+      dialect: 'postgres'
+      pool:
+        max: 5
+        min: 0
+        idle: 10000
+  jwt:
+    algorithms: *JWT_ALGORITHMS
+  eInvoice:
+    s3Bucket: einvoices-by-environment-stage
+    ecsTaskDefinitionRevision: 9
+  fabric: 'http://fabric-stage.filex.com'

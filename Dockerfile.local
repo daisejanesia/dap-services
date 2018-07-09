@@ -1,0 +1,19 @@
+FROM node:8.11.1
+
+LABEL maintainer="alonzo.thomas@traxtech.com"
+
+RUN apt-get update 
+RUN apt-get install -y netcat
+RUN apt-get install -y sqlite3 libsqlite3-dev
+RUN mkdir /db
+RUN /usr/bin/sqlite3 /db/test.db
+CMD /bin/bash
+
+RUN npm config set @trax:registry http://npm.s03.filex.com:8080
+
+WORKDIR /builds
+COPY wait-for /builds/
+
+WORKDIR /app
+
+EXPOSE 3000

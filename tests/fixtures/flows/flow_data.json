@@ -1,0 +1,205 @@
+[
+    {
+      "model": "flow_template",
+      "data": {
+        "id": "1234",
+        "name": "test_template",
+        "feedType": "test",
+        "flowType": "test",
+        "schema": "this is the schema"
+      }
+    },
+    {
+      "model": "flow_config",
+      "data": {
+        "id": "07e6745eb28c47f78eff3f57c234127c",
+        "flowTemplateId": "1234",
+        "context": "data_pipeline-FLOW_TEST",
+        "name": "Pfizer_Test1",
+        "description": "sv to SQL",
+        "flowType":"SQL",
+        "feedType":"csv",
+        "status":"Test",
+        "enabled":true,
+        "testConfig":{
+          "message_classifier": {
+            "equals": {
+              "route_id": 9303
+            },
+            "regex": {
+              "basename": "Pfizer_Air_.*"
+            }
+          },
+          "parser_selector": {
+            "parser": "delimited_values_to_json"
+          },
+          "delimited_values_to_json": {
+            "delimiter": "|"
+          },
+          "map_json": {
+            "map_id": "598044ffb66ac21b1f9eddc0"
+          },
+          "to_sqlserver": {
+            "server": "PfizerGlobalGTNexusRatessql.Traxtech.com",
+            "database": "PfizerGlobalGTNexusRates",
+            "schema": "dbo",
+            "table": "PfizerGlobalGTNexusAirRates"
+          }
+        },
+        "prodConfig":{
+          "message_classifier": {
+            "equals": {
+              "route_id": 9303
+            },
+            "regex": {
+              "basename": "Pfizer_Air_.*"
+            }
+          },
+          "parser_selector": {
+            "parser": "delimited_values_to_json"
+          },
+          "delimited_values_to_json": {
+            "delimiter": "|"
+          },
+          "map_json": {
+            "map_id": "598044ffb66ac21b1f9eddc0"
+          },
+          "to_sqlserver": {
+            "server": "PfizerGlobalGTNexusRatessql.Traxtech.com",
+            "database": "PfizerGlobalGTNexusRates",
+            "schema": "dbo",
+            "table": "PfizerGlobalGTNexusAirRates"
+          }
+        }
+      }
+    },
+    {
+      "model": "flow_config",
+      "data": {
+        "id": "097d6ad42eb24d078e0a07567ead1cbb",
+        "flowTemplateId": "1234",
+        "context":"data_pipeline-FLOW_TEST",
+        "name": "Pfizer_Test2",
+        "description": "CSV to FPS",
+        "flowType": "SQL",
+        "feedType": "CSV",
+        "status": "Test",
+        "enabled": false,
+        "testConfig":{
+          "message_classifier": {
+            "equals": {
+              "route_id": 9303
+            },
+            "regex": {
+              "basename": "Pfizer_Air_.*"
+            }
+          },
+          "parser_selector": {
+            "parser": "delimited_values_to_json"
+          },
+          "delimited_values_to_json": {
+            "delimiter": "|"
+          },
+          "map_json": {
+            "map_id": "598044ffb66ac21b1f9eddc0"
+          },
+          "to_sqlserver": {
+            "server": "PfizerGlobalGTNexusRatessql.Traxtech.com",
+            "database": "PfizerGlobalGTNexusRates",
+            "schema": "dbo",
+            "table": "PfizerGlobalGTNexusAirRates"
+          }
+        },
+        "prodConfig":{
+          "message_classifier": {
+            "equals": {
+              "route_id": 9303
+            },
+            "regex": {
+              "basename": "Pfizer_Air_.*"
+            }
+          },
+          "parser_selector": {
+            "parser": "delimited_values_to_json"
+          },
+          "delimited_values_to_json": {
+            "delimiter": "|"
+          },
+          "map_json": {
+            "map_id": "598044ffb66ac21b1f9eddc0"
+          },
+          "to_sqlserver": {
+            "server": "PfizerGlobalGTNexusRatessql.Traxtech.com",
+            "database": "PfizerGlobalGTNexusRates",
+            "schema": "dbo",
+            "table": "PfizerGlobalGTNexusAirRates"
+          }
+        }
+      }
+    },
+    {
+      "model": "flow_config",
+      "data": {
+        "id": "14xd6ad4xeb24d078e0a074a7ead1cbb",
+        "flowTemplateId": "1234",
+        "context":"data_pipeline-PROD",
+        "name": "Pfizer_Test3",
+        "description": "CSV to FPS",
+        "flowType": "SQL",
+        "feedType": "CSV",
+        "status": "Prod",
+        "enabled": true,
+        "testConfig":{
+          "message_classifier": {
+            "equals": {
+              "route_id": 9303
+            },
+            "regex": {
+              "basename": "Pfizer_Air_.*"
+            }
+          },
+          "parser_selector": {
+            "parser": "delimited_values_to_json"
+          },
+          "delimited_values_to_json": {
+            "delimiter": "|"
+          },
+          "map_json": {
+            "map_id": "598044ffb66ac21b1f9eddc0"
+          },
+          "to_sqlserver": {
+            "server": "PfizerGlobalGTNexusRatessql.Traxtech.com",
+            "database": "PfizerGlobalGTNexusRates",
+            "schema": "dbo",
+            "table": "PfizerGlobalGTNexusAirRates"
+          }
+        },
+        "prodConfig":{
+          "message_classifier": {
+            "equals": {
+              "route_id": 9303
+            },
+            "regex": {
+              "basename": "Pfizer_Air_.*"
+            }
+          },
+          "parser_selector": {
+            "parser": "delimited_values_to_json"
+          },
+          "delimited_values_to_json": {
+            "delimiter": "|"
+          },
+          "map_json": {
+            "map_id": "598044ffb66ac21b1f9eddc0"
+          },
+          "to_sqlserver": {
+            "server": "PfizerGlobalGTNexusRatessql.Traxtech.com",
+            "database": "PfizerGlobalGTNexusRates",
+            "schema": "dbo",
+            "table": "PfizerGlobalGTNexusAirRates"
+          }
+        }
+      }
+    }
+  ]
+  
