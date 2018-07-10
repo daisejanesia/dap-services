@@ -1,5 +1,5 @@
 const chai = require('chai');
-const sequelize = require('../../../../sequelize');
+const sequelize = require('../../sequelize');
 
 const TestHelper = require('../../helpers/testHelper');
 

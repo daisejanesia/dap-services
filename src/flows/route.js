@@ -20,15 +20,16 @@ const _getFlows = {
   handler: async request => {
     const { purpose, context, name, status, enabled } = request.query;
     const { id } = request.params;
-    const flows = await FlowListings.getAllFlows(
-      context,
-      id,
-      name,
-      status,
-      enabled,
-      purpose
-    );
-    return { data: flows.get() };
+    return {
+      data: await FlowListings.getAllFlows(
+        context,
+        id,
+        name,
+        status,
+        enabled,
+        purpose
+      )
+    };
   }
 };
 
@@ -50,8 +51,9 @@ const _getFlowById = {
   handler: async request => {
     const { purpose } = request.query;
     const { id } = request.params;
-    const flows = await FlowListings.getFlowById(id, purpose);
-    return { data: flows.get() };
+    return {
+      data: await FlowListings.getFlowById(id, purpose)
+    };
   }
 };
 
@@ -61,7 +63,7 @@ const _createFlow = {
   handler: async (request, h) => {
     const flowConfig = request.payload;
     const createdFlow = await FlowListings.createFlowConfiguration(flowConfig);
-    return h.response(createdFlow.get()).code(201);
+    return h.response({ data: createdFlow }).code(201);
   },
   config: {
     security: true,
@@ -120,11 +122,7 @@ const _updateFlow = {
   handler: async request => {
     const flowConfig = request.payload;
     const { id } = request.params;
-    const updatedFlow = await FlowListings.updateFlowConfiguration(
-      id,
-      flowConfig
-    );
-    return updatedFlow.get();
+    return FlowListings.updateFlowConfiguration(id, flowConfig);
   },
   config: {
     security: true,
@@ -182,8 +180,7 @@ const _enableFlow = {
   handler: async request => {
     const { enable } = request.payload;
     const { id } = request.params;
-    const updatedFlow = await FlowListings.enableFlowConfiguration(id, enable);
-    return updatedFlow.get();
+    return FlowListings.enableFlowConfiguration(id, enable);
   },
   config: {
     security: true,
@@ -206,11 +203,7 @@ const _releaseFlow = {
   handler: async request => {
     const flowConfig = request.payload;
     const { id } = request.params;
-    const updatedFlow = await FlowListings.releaseFlowConfiguration(
-      id,
-      flowConfig
-    );
-    return updatedFlow.get();
+    return FlowListings.releaseFlowConfiguration(id, flowConfig);
   },
   config: {
     security: true,
