@@ -4,12 +4,12 @@ const sinon = require('sinon');
 const rp = require('request-promise');
 const path = require('path');
 const { sequelizeMockingMocha } = require('sequelize-mocking');
-const settings = require('../../../settings');
+const settings = require('../settings');
 
-const apiHelper = require('../../../helpers/test/api-helper');
+const apiHelper = require('../../tests/api-helper');
 const isPresent = require('./isPresent');
 
-const logger = require('../../../logger');
+const logger = require('../logger');
 
 logger.level('debug');
 

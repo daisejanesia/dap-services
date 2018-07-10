@@ -20,7 +20,7 @@ describe('Flow Configurations API:', function() {
   let sandbox = null;
 
   beforeEach(() => {
-    sandbox = sinon.sandbox.create();
+    sandbox = sinon.createSandbox();
   });
 
   afterEach(() => {

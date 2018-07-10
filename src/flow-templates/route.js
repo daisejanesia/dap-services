@@ -2,7 +2,7 @@ const Boom = require('boom');
 const Service = require('./service');
 const Joi = require('joi');
 
-const logger = require('../../../logger');
+const logger = require('../logger');
 
 logger.level('debug');
 

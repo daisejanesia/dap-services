@@ -48,13 +48,9 @@ const getAllFlows = (context, id, name, status, enabled, purpose) => {
   );
   return FlowConfig.findAll({
     where: whereFilter
-  }).then(existingFlow => {
-    if (_.isEmpty(existingFlow)) {
-      return Promise.reject(Boom.notFound());
-    }
-
-    return existingFlow.map(item => transformConfig(item, purpose));
-  });
+  }).then(existingFlow =>
+    existingFlow.map(item => transformConfig(item, purpose))
+  );
 };
 
 const getFlowById = (id, purpose) =>
